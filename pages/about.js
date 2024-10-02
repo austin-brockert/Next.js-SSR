@@ -1,5 +1,12 @@
 import React from "react";
 
+export async function getServerSideProps() {
+    const data = 'Hello, this is SSR data!';
+    return {
+        props: { data } 
+    };
+}
+
 const About = ({ data }) => {
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
@@ -9,9 +16,6 @@ const About = ({ data }) => {
     );
 }
 
-export async function getServerSideProps() {
-    const data = 'Hello, this is SSR data!';
-    return { props: { data } };
-}
+
 
 export default About;
