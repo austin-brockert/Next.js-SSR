@@ -2,7 +2,7 @@ export default async function handler(req, res) {
     
     if(req.method == "GET"){
         console.log('POST METHOD');
-        res.status(200).json({ message: 'Data received' });
+        res.status(200).json({ message: 'Data received' }); 
     } else if(req.method == "POST"){
         var response = {
             userId : req.body.userId,
