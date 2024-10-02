@@ -5,8 +5,8 @@ import axios from 'axios'
 function Auth(){
 
     const [modal, setModal] = useState(false);
-    const [loginUserId, setLoginUserId] = useState('');
-    const [loginPassword, setLoginPassword] = useState('');
+    const [loginUserId, setLoginUserId] = useState('HiddenEye');
+    const [loginPassword, setLoginPassword] = useState('password');
 
     const onCloseLoginModal = (e) => {
         e.preventDefault();
@@ -16,7 +16,7 @@ function Auth(){
     const onLogin = async () => {
         const response = await axios.post('api/auth/login', { userId : loginUserId, password: loginPassword});
         const data = await response.data;
-        console.log(data.userId);
+        console.log(data);
     }
 
     const toRegisterModal = () => {
@@ -59,6 +59,7 @@ function Auth(){
                             <input 
                                 className="text-base border-solid border-b-[1px] w-full hover:border-b-[#0249AC] outline-none pb-0.5"
                                 type="text"
+                                value={loginUserId}
                                 onChange={e => setLoginUserId(e.target.value)}
                             />
                         </div>
@@ -67,6 +68,7 @@ function Auth(){
                             <input 
                                 className="text-base border-solid border-b-[1px] w-full hover:border-b-[#0249AC] outline-none pb-0.5"
                                 type="password"
+                                value={loginPassword}
                                 onChange={e => setLoginPassword(e.target.value)}
                             />
                         </div>
